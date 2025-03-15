@@ -1,9 +1,13 @@
+import styles from "./Home.module.scss";
+import Post from "../../common/Post/Post";
+
 const Home = () => {
 	return (
-		<>
-			<h1>Home</h1>
-			<p>Home</p>
-		</>
+		<div className={styles.wrapper}>
+			<h3 className="">All posts</h3>
+					<Post />
+				</div>
+
 	);
 };
 
