@@ -6,7 +6,7 @@ const NavBar = () => {
 	return (
 		<Navbar bg="primary" variant="dark" className="mt-4 mb-4 rounded">
 			<Navbar.Brand
-				href="#home"
+				href="/"
 				className={`text-white me-auto  ${styles.customNavbarBrand}`}
 			>
 				Blog.app

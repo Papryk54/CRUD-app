@@ -21,11 +21,6 @@ const Posts = () => {
 
 	return (
 		<Container>
-			<Link className="mt-5" key={post.id} to="/">
-				<Button className="me-2" variant="outline-danger">
-					Back
-				</Button>
-			</Link>
 			<div className="mt-5 d-flex justify-content-between align-items-center">
 				<h5 className={style.title}>{post.title}</h5>
 				<div>
