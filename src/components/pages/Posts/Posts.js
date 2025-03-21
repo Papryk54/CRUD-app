@@ -1,11 +1,10 @@
 import { Container, Button, Modal } from "react-bootstrap";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { getPostById } from "../../../redux/postsRedux";
-import style from "./Posts.module.scss";
 import { removePost } from "../../../redux/postsRedux";
-import { Navigate } from "react-router-dom";
+import dateToStr from "../../../utils/dateToStr";
 
 const Posts = () => {
 	const { id } = useParams();
@@ -22,7 +21,7 @@ const Posts = () => {
 	return (
 		<Container>
 			<div className="mt-5 d-flex justify-content-between align-items-center">
-				<h5 className={style.title}>{post.title}</h5>
+				<h5>{post.title}</h5>
 				<div>
 					<Link className="mt-5" key={post.id} to={`/post/edit/${post.id}`}>
 						<Button className="me-2" variant="outline-primary">
@@ -59,11 +58,15 @@ const Posts = () => {
 				<span className="fw-bold">Author: </span>
 				{post.author}
 			</p>
-			<p>
+			<p className="mb-0">
 				<span className="fw-bold">Published: </span>
-				{post.publishedDate}
+				{dateToStr(post.publishedDate)}
 			</p>
-			<p>{post.content}</p>
+			<p className="mb-3">
+				<span className="fw-bold">Category: </span>
+				{post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+			</p>
+			<p dangerouslySetInnerHTML={{ __html: post.content }} />
 		</Container>
 	);
 };

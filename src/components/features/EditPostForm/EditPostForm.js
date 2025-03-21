@@ -1,10 +1,8 @@
-import PostForm from "../PostForm/PostForm";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useParams, Navigate } from "react-router-dom";
 import { editPost } from "../../../redux/postsRedux";
-import { useSelector } from "react-redux";
 import { getPostById } from "../../../redux/postsRedux";
-import { useParams } from "react-router-dom";
-import { Navigate } from "react-router-dom";
+import PostForm from "../PostForm/PostForm";
 
 const EditPostForm = () => {
 	const { id } = useParams();
@@ -20,7 +18,6 @@ const EditPostForm = () => {
 	};
 
 	const handleEditPost = (e, postData) => {
-		e.preventDefault();
 		dispatch(editPost(postData, post.id));
 	};
 

@@ -7,6 +7,7 @@ import NotFound from "./components/pages/NotFound/NotFound";
 import Footer from "./components/views/Footer/Footer";
 import Header from "./components/views/Header/Header";
 import AddPost from "./components/pages/AddPost/AddPost";
+import Category from "./components/pages/Category/Category";
 import { Container } from "react-bootstrap";
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
 					<Route path="/post/edit/:id" element={<EditPost />} />
 					<Route path="/about" element={<About />} />
 					<Route path="/post/add" element={<AddPost />} />
+					<Route path="/category" element={<Category />} />
+					<Route path="/category/:category" element={<Category />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 				<Footer />

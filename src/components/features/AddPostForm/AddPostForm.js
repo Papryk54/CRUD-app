@@ -6,13 +6,13 @@ const AddPostForm = () => {
 	const postData = {
 		title: "",
 		author: "",
-		publishedDate: "2022-02-02",
+		publishedDate: new Date(),
 		shortDescription: "",
 		content: "",
+		category: "Sport",
 	};
 	const dispatch = useDispatch();
 	const handleAddPost = (e, postData) => {
-		e.preventDefault();
 		dispatch(addPost(postData));
 	};
 

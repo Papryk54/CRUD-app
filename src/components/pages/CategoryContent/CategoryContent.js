@@ -1,15 +1,19 @@
-import { Button, Card } from "react-bootstrap";
-import { getAllPosts } from "../../../redux/postsRedux";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { getPostByCategory } from "../../../redux/postsRedux";
+import { Card, Button } from "react-bootstrap";
+import { Link, useParams  } from "react-router-dom";
 import dateToStr from "../../../utils/dateToStr";
 
-const Post = () => {
-	const posts = useSelector((state) => getAllPosts(state));
+const CategoryContent = (category1) => {
+	const { category } = useParams();
+	const postByCategory = useSelector((state) =>
+		getPostByCategory(state, category)
+	);
+	const displayPost = postByCategory.length > 0;
 
 	return (
 		<div className="row mt-4 mb-4">
-			{posts.map((post) => (
+			{postByCategory.map((post) => (
 				<div key={post.id} className="col-12 col-md-4 ">
 					<Card>
 						<Card.Body>
@@ -34,8 +38,9 @@ const Post = () => {
 					</Card>
 				</div>
 			))}
+			{!displayPost && category && <p> No post in this category... </p>}
 		</div>
 	);
 };
 
-export default Post;
+export default CategoryContent;

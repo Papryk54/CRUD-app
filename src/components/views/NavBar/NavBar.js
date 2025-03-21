@@ -1,6 +1,7 @@
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import styles from "./NavBar.module.scss";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
 	return (
@@ -12,10 +13,13 @@ const NavBar = () => {
 				Blog.app
 			</Navbar.Brand>
 			<Nav className="ms-auto">
-				<Nav.Link href="/" className="text-white">
+				<Nav.Link to="/" as={Link} className="text-white">
 					Home
 				</Nav.Link>
-				<Nav.Link href="/about" className="text-white">
+				<Nav.Link to="/category" as={Link} className="text-white">
+					Category
+				</Nav.Link>
+				<Nav.Link to="/about" as={Link} className="text-white">
 					About
 				</Nav.Link>
 			</Nav>
